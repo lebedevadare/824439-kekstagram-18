@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм» [![Build status][travis-image]][travis-url]
 
 * Студент: [Дарья Баранова](https://up.htmlacademy.ru/javascript/18/user/824439).
-* Наставник: `Неизвестно`.
+* Наставник:[Михаил Устенко](https://htmlacademy.ru/profile/novomanu).
 
 ---
 
