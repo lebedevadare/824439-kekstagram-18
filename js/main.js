@@ -59,7 +59,6 @@ var createDescription = function (namePhoto) {
 
   return {
     url: pathPhoto,
-    description: 'Hi lOl',
     likes: likesUsers,
     comments: commentsUsers
   };
@@ -76,6 +75,7 @@ var createArrayDescriptions = function (quantityPhotos) {
   return arrayDescriptions;
 };
 var arrayMockData = createArrayDescriptions(PHOTOS_QUANTITY);
+console.log(arrayMockData);
 
 var templatePicture = document.querySelector('#picture').content.querySelector('.picture');
 var photo = templatePicture.querySelector('img');
