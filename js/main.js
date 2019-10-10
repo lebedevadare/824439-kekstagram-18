@@ -139,7 +139,7 @@ var createFullSizePhoto = function (picture) {
   captionSocial.textContent = picture.description;
   commentsBlock.innerHTML = '';
   for (var i = 0; i < picture.comments.length; i++) {
-    commentsBlock.appendChild(createCommentsBlock(picture.comments[i]))
+    commentsBlock.appendChild(createCommentsBlock(picture.comments[i]));
   }
 };
 
