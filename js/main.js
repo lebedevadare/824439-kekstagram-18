@@ -109,11 +109,27 @@ var bigPicture = document.querySelector('.big-picture');
 var image = bigPicture.querySelector('.big-picture__img img');
 var likesUsersImage = bigPicture.querySelector('.likes-count');
 var commentsUsersImage = bigPicture.querySelector('.comments-count');
-var commentsCount = bigPicture.querySelector('.social__comment-count');
-var commentsLoader = bigPicture.querySelector('.comments-loader');
 var captionSocial = bigPicture.querySelector('.social__caption');
 var commentsBlock = bigPicture.querySelector('.social__comments');
-var socialBlock = commentsBlock.querySelector('.social__comment');
+
+
+var createCommentsBlock = function (commnent) {
+  var squareLengthBlock = 35;
+  var createBlock = document.createElement('li');
+  var createImg = document.createElement('img');
+  var createP = document.createElement('p');
+  createBlock.appendChild(createImg);
+  createBlock.appendChild(createP);
+  createBlock.classList.add('social__comment');
+  createImg.classList.add('social__picture');
+  createP.classList.add('social__text');
+  createImg.setAttribute('src', commnent.avatar);
+  createImg.setAttribute('alt', commnent.name);
+  createImg.setAttribute('width', squareLengthBlock);
+  createImg.setAttribute('height', squareLengthBlock);
+  createP.innerHTML = commnent.message;
+  return createBlock;
+};
 
 var createFullSizePhoto = function (picture) {
   bigPicture.classList.remove('hidden');
@@ -121,25 +137,10 @@ var createFullSizePhoto = function (picture) {
   likesUsersImage.textContent = picture.likes;
   commentsUsersImage.textContent = picture.comments.length;
   captionSocial.textContent = picture.description;
-};
-
-createFullSizePhoto(arrayPhotos);
-socialBlock.textContent = createFullSizePhoto(arrayPhotos);
-
-// Cоздает блок комментариев
-
-var getСomments = function (itemPhoto) {
-  commentsCount.classList.add('visually-hidden');
-  commentsLoader.classList.add('visually-hidden');
-
-  var fragment = document.createDocumentFragment();
-
-  for (var i = 0; i < itemPhoto.length; i++) {
-    var itemComment = createFullSizePhoto(itemPhoto[i]);
-    fragment.appendChild(itemComment);
-  }
-
   commentsBlock.innerHTML = '';
-  commentsBlock.appendChild(fragment);
+  for (var i = 0; i < picture.comments.length; i++) {
+    commentsBlock.appendChild(createCommentsBlock(picture.comments[i]))
+  }
 };
-getСomments();
+
+createFullSizePhoto(arrayPhotos[getRandomNumber(0, arrayPhotos.length)]);
